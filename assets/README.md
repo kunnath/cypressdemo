@@ -109,7 +109,7 @@ CMD [ "npm", "start-api" ]
 entrypoint: /scripts/wait_for_it.sh api:5000 -- cypress run
 following above entrypoint wait for the api url up and running
 
-#### cypress json (testrail inegration)
+#### cypress json (testrail integration)
 cypress.json provide the testrail intergration for the execution result.
 
 ```json
