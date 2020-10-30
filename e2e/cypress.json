@@ -1,0 +1,15 @@
+{
+  "baseUrl": "http://localhost:5000/#",
+  "testFiles": "**/*.feature",
+  "experimentalNetworkStubbing": true,
+  "pluginsFile": false,
+  "supportFile": false,
+  "reporter": "cypress-testrail-reporter",
+  "reporterOptions": {
+      "domain": "pinksandbox.testrail.io",
+      "username": "qa@qa.qa",
+      "password": "Test1234",
+      "projectId": 2,
+      "suiteId": 2
+  }
+}

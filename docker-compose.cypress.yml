@@ -1,0 +1,16 @@
+version: '3.2'
+services:
+  app:
+    environment:
+      - REACT_APP_API_URL=http://api:5000
+  cypress:
+    image: 'cypress/included:3.2.0'
+    depends_on:
+      - app
+    entrypoint: /scripts/wait_for_it.sh app:5000 -- cypress run
+    environment:
+      - CYPRESS_baseUrl=http://app:5000
+    working_dir: /e2e
+    volumes:
+      - ./cypress:/e2e
+      - ./scripts:/scripts
