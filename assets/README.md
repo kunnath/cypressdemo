@@ -4,11 +4,17 @@ This is a quick implementation of a ReactJS with cypress using dockerfile and do
 
 A ReactJS application with cypress  is usually made of 2  main container - 
 
-Container1 :api container run in node:8 with port 5000, "npm start" command to start PORT=5000 react-scripts.
+Container1 : 
 
-            in node:8 command start "npm start-api" with port 8080 to run "app.py"
+            api container run in node:8 with command "npm start" with port: 5000 and using "start react-scripts"
 
-Container2 :cypress container run cypress with all feature file from integration folder and report to testrail.
+            in node:8 command start "npm start-api" with port 8080 ,"app.py" script to run flask run.
+
+
+Container2 :
+
+            cypress container run cypress with all feature file from integration folder and report to testrail.
+
 
 
  new files added, "scripts/wait_for_it.sh" this file used to wait for the ReactJS application up running for the cypress container.
