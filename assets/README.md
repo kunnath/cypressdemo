@@ -4,9 +4,9 @@ This is a quick implementation of a ReactJS with cypress using dockerfile and do
 
 A ReactJS application with cypress  is usually made of 2  main container - 
 
-container1 :api
-               container run in node:8 with port 5000, command to start "npm start"
-               and in node:8 with port 8080, command to start "npm start-api"
+container1 :api container run in node:8 with port 5000, command to start "npm start", and in node:8 with port 8080, command to start "npm start-api"
+
+
 container2 :cypress
                container run cypress with all feature file from integration folder and report to testrail.
 
