@@ -4,20 +4,22 @@ This is a quick implementation of a ReactJS with cypress using dockerfile and do
 
 A ReactJS application with cypress  is usually made of 2  main container - 
 
-container1 :api container run in node:8 with port 5000, command to start "npm start", and in node:8 with port 8080, command to start "npm start-api"
+Container1 :api container run in node:8 with port 5000, "npm start" command to start PORT=5000 react-scripts.
+
+            in node:8 command start "npm start-api" with port 8080 to run "app.py"
+
+Container2 :cypress container run cypress with all feature file from integration folder and report to testrail.
 
 
-container2 :cypress
-               container run cypress with all feature file from integration folder and report to testrail.
+ new files added, "scripts/wait_for_it.sh" this file used to wait for the ReactJS application up running for the cypress container.
 
-few new files added,scripts/wait_for_it.sh is used to wait for the ReactJS application up running for the cypress container.
 
-As already stated this project implementation is not fully completed due technical diffculty and slowness. I am providing my solution as much as possible i can.
+As already stated this project implementation is not fully completed due to technical diffculty and internet slowness.
+          I am providing my solution as much as possible i can.
 
 The entry point for a user is a website which is available under the address: **http://localhost:5000/#**
 
 ![diagram](https://github.com/kunnath/cypressdemo/blob/master/assets/cypress.png)
-
 
 
 
@@ -55,9 +57,10 @@ After running the api it can be accessible using these 5000 port:
 - Database: *sqlite3*
 
 
-*docker-compose.yml* file.
+#### docker-compose.yml* file.
 
 ```yml
+
 version: '3.2'
 services:
   api:
@@ -75,6 +78,9 @@ services:
     volumes:
       - ./:/e2e
 ```
+
+#### dockerfile * file.
+
 
 ```dockerfile
 
@@ -106,13 +112,21 @@ CMD [ "npm", "start-api" ]
 
 #### cypress (cypress run in e2e folder)
 
+
 entrypoint: /scripts/wait_for_it.sh api:5000 -- cypress run
-following above entrypoint wait for the api url up and running
+
+following above entrypoint is waiting for the api url up and running , running the cypress
+
 
 #### cypress json (testrail integration)
+
+
 cypress.json provide the testrail intergration for the execution result.
 
+#### *cypress.json* file.
+
 ```json
+
 {
   "baseUrl": "http://localhost:5000/#",
   "testFiles": "**/*.feature",
@@ -128,7 +142,9 @@ cypress.json provide the testrail intergration for the execution result.
       "suiteId": 2
   }
 }
+
 ```
-I could not validate the projectId ,suiteId ,hence proving the default value.
+
+I could not validate the projectId ,suiteId .Hence proving the default value.
 
 
