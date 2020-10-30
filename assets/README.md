@@ -16,7 +16,7 @@ As already stated this project implementation is not fully completed due technic
 
 The entry point for a user is a website which is available under the address: **http://localhost:5000/#**
 
-![diagram](https://github.com/kunnath/cypressdemo/edit/master/assets/cypress.png)
+![diagram](https://github.com/kunnath/cypressdemo/master/assets/cypress.png)
 
 
 
